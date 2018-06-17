@@ -1,0 +1,25 @@
+                                            Spring.
+
+     XmlBeanDefinitionReader - Возжможность настраивать контескт при помощи xml. В xml прописываем бины и из этого xml
+поднимаем контекст.
+    XmlBeanDefinitionReader сканирует xml и переводит в BeanDefinition.
+
+    BeanDefinitions - это такие объекты , которые хранят в себе информацию про бины.
+
+    BeanFactory - отвечает за создание и хранение всех объектов( которые singleton)
+
+
+Сначало XmlBeanDefinitionReader сканирует xml файл и переводит бины в BeanDefinitions;
+Затем когда созданиы BeanDefinitions, BeanFactory начинает по ним работать , создает из наших классов объекты и все
+бины складывает в IoC контейнер.
+Если бин является синглтоном , то по умолчанию он создается , как только поднимается контекст, и складываются в контейн.
+а все прототайпы создаются , когда они нужны.
+
+
+                                    BeanPostProcessor.
+
+   BeanPostProcessor  - позволяет настраивать наши бины до того, как они попадают в контейнер.
+
+   postProcessorBeforeInitialization(Object bean, String beanName) - вызывается до init метода
+
+   postProcessorAfterInitialization(Object bean, String beanName) - вызывается после init метода

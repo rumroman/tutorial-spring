@@ -1,0 +1,53 @@
+                                            Reactor. 02.04.18
+
+При добавлении зависимости ,нужно опускать версию , чтобы она сама подвязалась из спеуцификации.
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-bom</artifactId>
+            <version>Bismuth-RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+Reactor provides two main types of publishers: Flux and Mono. A Flux is a general purpose publisher that can contain
+an unbounded number of events. A Mono is a specialized publisher that can contain only zero or one events.
+
+
+                                Что же такое Reactive Streams в Java?
+
+Если грубо, то это 4 интерфейса, которые представлены в библиотеке reactive-streams-jvm:
+
+- Publisher;
+- Subscriber;
+- Subscription;
+- Processor;
+
+Их точные копии присутствуют в классе Flow из девятки.
+
+Если еще более грубо, то к ним всем выдвигаются примерно следующие требования:
+
+- ASYNC асинхроннсоть;
+- NIO "неблокируемость" ввода/вывода;
+- RESPECT BACKPRESSURE умение обрабатывать ситуации, когда данные появляются быстрее, чем потребляются(в синхронном,
+                       императивном коде подобная ситуация не возникает , но в реактивных системах такое часто встречается).
+
+Flux - это исплементация интерфейса Publisher, представляет из себя последовательность из 0...N элементов , которая может
+(но не обязательно) завершаться(в т.ч. и с ошибкой).
+ У последовательности Flux есть 3 допустимых значения: объект последовательности , сигнал завершения или сигнал ошибки
+ (вызовы методов onNext, onComplete , onError соответственно).
+
+ Каждое из 3 значений опционально . К примеру , Flux может представлять из себя бесконечную пустую последовательность
+ (ни один метод не вызывается). Или конечную пустую последовательность (Вызывается только onComplete). Или бесконечную
+ последовательность значений (вызывается только onNext). И т.д.
+
+
+                                     Reactor 03.04.18
+                     Отзывчивое , масшатбируемое , отказоустойчивое приложение.
+
+
+

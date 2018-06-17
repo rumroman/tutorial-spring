@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.rum.tutorial-java-ee</groupId>
+  <artifactId>tutorial-java-ee</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>tutorial-java-ee</name>
+  <modules>
+    <module>tutorial-main</module>
+    <module>tutorial-soap</module>
+    <module>tutorial-beer-advisor</module>
+    <module>tutorial-reactor</module>
+    <module>tutorial-spring</module>
+    <module>tutorial-spring-jpa</module>
+    <module>tutorial-spring-mongodb</module>
+    <module>tutorial-rest</module>
+    <module>tutorial-spring-mvc</module>
+  </modules>
+</project>
